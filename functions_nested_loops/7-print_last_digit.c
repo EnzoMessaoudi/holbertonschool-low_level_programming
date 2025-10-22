@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-* main - Entry point
-*
-* Return: Always 0 (Success)
+* print_last_digit - Show the last digit of a number
+* @n: CHARACTER tested
+* Return: return the value of last
 */
 
 int print_last_digit(int n)
@@ -14,5 +14,5 @@ int print_last_digit(int n)
 		last = -last;
 
 	_putchar('0' + last);
-	return (0);
+	return (last);
 }
