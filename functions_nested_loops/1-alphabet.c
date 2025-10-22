@@ -7,16 +7,15 @@
 * Return: Always 0 (Success)
 */
 
-int main(void)
+void print_alphabet(void)
 {
-	char l = "a";
+	char l = 'a';
 
-	while (n <= "z")
+	while (l <= 'z')
 	{
 		_putchar(l);
 		l++;
 	}
 
 	_putchar('\n');
- 	return (0);
 }
