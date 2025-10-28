@@ -1,11 +1,12 @@
 #include <stdio.h>
+
 /**
+* main - main function
 *
-*
-*
+* Return: Return 0 if it does not work
 */
 
-int main (void)
+int main(void)
 {
 	int n;
 
@@ -21,5 +22,5 @@ int main (void)
 			printf("%d ", n);
 	}
 	printf("\n");
-	return 0;
+	return (0);
 }
