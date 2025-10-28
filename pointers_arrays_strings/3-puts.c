@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-*
-*
+* _puts - Function that print a string
+* @str: Character tested
 *
 */
 
