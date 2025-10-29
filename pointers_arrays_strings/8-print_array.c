@@ -22,7 +22,7 @@ void print_array(int *a, int n)
 		{
 			printf("%d", a[nb]);
 			nb++;
-			putchar('\n');
 		}
 	}
+	putchar('\n');
 }
