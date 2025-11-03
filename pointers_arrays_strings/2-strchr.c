@@ -5,7 +5,7 @@
 * _strchr - Function that locate c character of s
 * @s: String tested
 * @c: Character we search inside of s
-* Return: Return the value of s
+* Return: Return the address of the same charactere or NULL if not
 */
 
 char *_strchr(char *s, char c)
@@ -14,18 +14,10 @@ char *_strchr(char *s, char c)
 
 	while (s[n] != '\0')
 	{
-		if ( s[n] == c)
-		{
-			while (s[n] != '\0')
-			{
-				putchar(s[n]);
-				n++;
-			}
-		}
-		else
-		{
-			n++;
-		}
+		if (s[n] == c)
+		return (&s[n]);
+
+		n++;
 	}
-	return (s);		
+	return (NULL);
 }
