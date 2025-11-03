@@ -20,6 +20,6 @@ char *_strchr(char *s, char c)
 		n++;
 	}
 	if (s[n] == '\0')
-		return ('\0');
+		return (&s[n]);
 	return (NULL);
 }
