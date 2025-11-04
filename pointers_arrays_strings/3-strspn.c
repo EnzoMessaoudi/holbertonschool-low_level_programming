@@ -27,7 +27,7 @@ unsigned int _strspn(char *s, char *accept)
 				n++;
 		}
 		if (accept[n] == '\0')
-			return (res);
+			break;
 		c++;
 	}
 	return (res);

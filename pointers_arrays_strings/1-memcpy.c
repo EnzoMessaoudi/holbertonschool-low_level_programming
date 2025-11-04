@@ -2,7 +2,7 @@
 
 /**
 * _memcpy - Function that copies memory area of src inside of dest
-* @dest: Character wich received the value
+* @dest: Character which received the value
 * @src: Character which the value is taken
 * @n: How many Character we want to change
 * Return: Return the value of dest
