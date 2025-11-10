@@ -1,13 +1,12 @@
 #include "main.h"
 #include <stdlib.h>
-
 /**
-* str_concat - Function that concat s1 and s2
-* @s1: First string
-* @s2: Seconde string
-* Return: Return the address of the array
-*/
-
+ * str_concat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: pointer to new string, or NULL
+ */
 char *str_concat(char *s1, char *s2)
 {
 	char *arr;
@@ -25,16 +24,17 @@ char *str_concat(char *s1, char *s2)
 	while (s2[len2] != '\0')
 		len2++;
 
-	arr = malloc((len1 + 1) + (len2 + 1));
+	arr = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (arr == NULL)
+		return (NULL);
 
 	for (i = 0; i < len1; i++)
 		arr[i] = s1[i];
 
-	for (j = 0; s2[j] != '\0'; j++)
-	{
-		arr[i] = s2[j];
-		i++;
-	}
+	for (j = 0; j < len2; j++)
+		arr[i + j] = s2[j];
+
+	arr[len1 + len2] = '\0';
 
 	return (arr);
 }
