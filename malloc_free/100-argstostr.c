@@ -1,11 +1,11 @@
+#include "main.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
-* argstostr - Concatenates multiple strings
-* @ac: Number of string
-* @av: Array
-* Return: Return the value oif str
+* argstostr - Concatenates multiples strings
+* @ac: Numbers of strings
+* @av: Size of the array
+* Return: Return the value of str
 */
 
 char *argstostr(int ac, char **av)
@@ -18,7 +18,15 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
-		total += strlen(av[i]) + 1;
+	{
+		j = 0;
+		while (av[i][j] != '\0')
+		{
+			total++;
+			j++;
+		}
+		total++;
+	}
 
 	str = malloc(total + 1);
 	if (str == NULL)
@@ -26,9 +34,9 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			str[k++] = av[i][j];
-
+		j = 0;
+		while (av[i][j] != '\0')
+			str[k++] = av[i][j++];
 		str[k++] = '\n';
 	}
 
