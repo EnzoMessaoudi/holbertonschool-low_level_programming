@@ -5,7 +5,7 @@
 /**
 * sum_them_all - Return the sum of all the parametrs passed
 * @n: Number of parameter passed
-* return: Return the value of the variable value
+* Return: Return the value of the variable value
 */
 
 int sum_them_all(const unsigned int n, ...)
@@ -13,6 +13,9 @@ int sum_them_all(const unsigned int n, ...)
 	va_list args;
 	unsigned int i;
 	int value = 0;
+
+	if (n == 0)
+		return (0);
 
 	va_start(args, n);
 
