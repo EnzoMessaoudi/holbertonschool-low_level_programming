@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+/**
+* print_all - Print anything
+* @format: Type of the characters passed
+*/
+
 void print_all(const char * const format, ...)
 {
 	va_list args;
