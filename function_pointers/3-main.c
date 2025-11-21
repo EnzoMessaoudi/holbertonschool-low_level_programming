@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Usage: %s number operator number\n", argv[0]);
-		return (1);
+		printf("Error\n");
+		return (98);
 	}
 
 	a = atoi(argv[1]);
@@ -26,10 +26,19 @@ int main(int argc, char *argv[])
 	op_func = get_op_func(argv[2]);
 
 	if (op_func == NULL)
+	{
 		printf("Error\n");
+		return (99);
+	}
 
-	if (op_func != NULL)
-		printf("%d\n", op_func(a, b));
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && argv[2][1] == '\0'
+        && argv[3][0] == '0' && argv[3][1] == '\0')
+	{
+		printf("Error\n");
+		return (100);
+	}
+
+	printf("%d\n", op_func(a, b));
 
 	return (0);
 }
