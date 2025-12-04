@@ -13,15 +13,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char *buf;
-	ssize_t n = 0, total_written = 0, w = 0;
+	ssize_t n, w;
 
 	if (!filename)
 		return (0);
-
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
-
 	buf = malloc(letters);
 	if (!buf)
 	{
@@ -35,20 +33,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buf);
 		return (0);
 	}
-	while (total_written < n)
+
+	w = write(STDOUT_FILENO, buf, n);
+	if (w != n)
 	{
-		w = write(1, buf + total_written, n - total_written);
-
-		if (w == -1)
-		{
-			free(buf);
-			close(fd);
-			return (0);
-		}
-		total_written += w;
+		free(buf);
+		close(fd);
+		return (-1);
 	}
-
 	free(buf);
 	close(fd);
-	return (total_written);
+	return (w);
 }
