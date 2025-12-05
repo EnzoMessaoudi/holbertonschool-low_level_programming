@@ -10,10 +10,15 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int ind =  hash_djb2((unsigned char *)key) % ht->size;
+	unsigned long int ind;
 	hash_node_t *new_node;
-	hash_node_t *current = ht->array[ind];
+	hash_node_t *current;
 
+	if (ht == NULL || key == NULL || *key == '\0')
+		return (0);
+
+	ind = hash_djb2((unsigned char *)key) % ht->size;
+	current = ht->array[ind];
 	while (current != NULL)
 	{
 		if (strcmp(current->key, key) == 0)
@@ -24,9 +29,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 		current = current->next;
 	}
-
-	if (*key == '\0' || ht == NULL)
-		return (0);
 
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
